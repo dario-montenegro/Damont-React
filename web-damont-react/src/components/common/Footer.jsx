@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
   return (
-    <footer>
+    <footer id='contacto'>
       <div className="footer-iconos">
         <a
           href="https://wa.me/message/RW7VMYCQZSYLE1"

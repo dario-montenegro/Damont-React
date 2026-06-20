@@ -20,6 +20,10 @@ function Nav() {
 
           <li className="item-menu">
             <NavLink to="/galeria">Galería</NavLink>
+
+          <li>
+            <a href="#contacto">Contacto</a>
+          </li>
           </li>
         </ul>
       </nav>
