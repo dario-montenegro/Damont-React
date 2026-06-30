@@ -1,3 +1,5 @@
+import "../../styles/GalleryCard.css";
+
 function GalleryCard({ images, title }) {
   return (
     <div className="contenedor-card">
@@ -5,15 +7,21 @@ function GalleryCard({ images, title }) {
       <div className="card-galeria">
 
         {images.map((img, index) => (
-          <img key={index} src={img} alt={title} />
+          <img
+            key={index}
+            src={img}
+            alt={title}
+          />
         ))}
 
       </div>
 
-      <h2>{title}</h2>
+      <h2 className="titulo-galeria">
+        {title}
+      </h2>
 
     </div>
-  )
+  );
 }
 
-export default GalleryCard
+export default GalleryCard;

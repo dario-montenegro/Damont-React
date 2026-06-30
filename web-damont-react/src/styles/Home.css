@@ -1,0 +1,16 @@
+.imagen-portada{
+  width:100%;
+}
+
+.titulo-principal{
+  font-family:"Goldman",sans-serif;
+  color:red;
+  text-align:center;
+  margin:15px;
+}
+
+.parrafo-principal{
+  font-size:20px;
+  text-align:center;
+  padding:20px;
+}

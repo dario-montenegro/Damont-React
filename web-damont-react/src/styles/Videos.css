@@ -1,0 +1,28 @@
+.videos{
+    width: 90%;
+    margin: 50px auto;
+}
+
+.videos h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.videos-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.videos-container video{
+    width: 100%;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px){
+
+    .videos-container{
+        grid-template-columns:1fr;
+    }
+
+}   

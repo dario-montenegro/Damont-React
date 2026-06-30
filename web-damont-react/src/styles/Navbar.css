@@ -1,0 +1,18 @@
+.menu{
+  background-color: #131212;
+  display: flex;
+  list-style: none;
+  justify-content: space-evenly;
+}
+
+.menu a {
+  font-family: "Goldman", sans-serif;
+  color: rgb(134, 58, 58);
+  padding: 10px;
+}
+
+.item-menu{
+  width:100px;
+  font-size:20px;
+  text-align:center;
+}

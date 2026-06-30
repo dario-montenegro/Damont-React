@@ -1,158 +1,250 @@
-import React from 'react'
+import { useState } from "react";
 
 function Formulario() {
+  const [form, setForm] = useState({
+    vehiculo: "",
+    color: "",
+    modelo: "",
+    comentario: "",
+    nombre: "",
+    apellido: "",
+    email: "",
+    telefono: "",
+    horario: "mañana",
+    servicios: {
+      pulido: false,
+      limpieza: false,
+      polarizado: false,
+      opticas: false,
+    },
+  });
+
+  // Manejo inputs normales
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  };
+
+  // Checkboxes
+  const handleCheckbox = (e) => {
+    const { id, checked } = e.target;
+
+    setForm({
+      ...form,
+      servicios: {
+        ...form.servicios,
+        [id]: checked,
+      },
+    });
+  };
+
+  // Submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log("📩 DATOS FORMULARIO COMPLETO:");
+    console.log(form);
+
+    alert("Consulta enviada ✔");
+
+    // RESET
+    setForm({
+      vehiculo: "",
+      color: "",
+      modelo: "",
+      comentario: "",
+      nombre: "",
+      apellido: "",
+      email: "",
+      telefono: "",
+      horario: "mañana",
+      servicios: {
+        pulido: false,
+        limpieza: false,
+        polarizado: false,
+        opticas: false,
+      },
+    });
+  };
+
   return (
-    <div>
-        <div className="cont-form">
-        <h2 className="titulos-secundarios">Dejanos tu consulta</h2>
+    <div className="cont-form">
+      <h2 className="titulos-secundarios">Dejanos tu consulta</h2>
 
-        <form>
-          <div className="contenedor-formulario">
+      <form onSubmit={handleSubmit}>
+        <div className="contenedor-formulario">
 
-            <div className="formulario">
-              <label htmlFor="vehiculo">¿Qué vehículo tenés?</label>
-              <input
-                type="text"
-                id="vehiculo"
-                name="vehiculo"
-                placeholder="VW Gol, Ford Ka, etc."
-              />
-            </div>
-
-            <div className="formulario">
-              <label htmlFor="color">¿Qué color es?</label>
-              <input
-                type="text"
-                id="color"
-                name="color"
-                placeholder="Negro, Blanco, etc."
-              />
-            </div>
-
-            <div className="formulario">
-              <label htmlFor="modelo">¿Qué modelo es?</label>
-              <input
-                type="number"
-                id="modelo"
-                name="modelo"
-                placeholder="1995, 2010, etc."
-              />
-            </div>
-
-            <div className="formulario">
-              <label htmlFor="foto">
-                Dejá aquí una foto de tu vehículo (opcional)
-              </label>
-
-              <input
-                type="file"
-                id="foto"
-                name="foto"
-              />
-            </div>
-
-            <div className="formulario">
-              <label>¿Qué servicio te interesa?</label>
-
-              <div>
-                <input type="checkbox" id="pulido" />
-                <label htmlFor="pulido">Pulido</label>
-              </div>
-
-              <div>
-                <input type="checkbox" id="limpieza" />
-                <label htmlFor="limpieza">Limpieza de interior</label>
-              </div>
-
-              <div>
-                <input type="checkbox" id="polarizado" />
-                <label htmlFor="polarizado">Polarizado</label>
-              </div>
-
-              <div>
-                <input type="checkbox" id="opticas" />
-                <label htmlFor="opticas">Pulido de ópticas</label>
-              </div>
-            </div>
-
-            <h4>
-              Dejanos algún detalle que te interese contarnos de tu vehículo
-            </h4>
-
-            <textarea
-              name="comentario"
-              id="comentario"
-              rows="10"
-              cols="50"
-              placeholder="Necesito limpiar la alfombra porque ingresó agua al vehículo"
+          {/* VEHICULO */}
+          <div className="formulario">
+            <label>¿Qué vehículo tenés?</label>
+            <input
+              type="text"
+              name="vehiculo"
+              value={form.vehiculo}
+              onChange={handleChange}
             />
-
-            <h4>Dejanos tus datos para comunicarnos con vos</h4>
-
-            <div className="formulario">
-              <label htmlFor="nombre">Nombre</label>
-              <input
-                type="text"
-                id="nombre"
-                required
-                placeholder="Escribe aquí..."
-              />
-            </div>
-
-            <div className="formulario">
-              <label htmlFor="apellido">Apellido</label>
-              <input
-                type="text"
-                id="apellido"
-                required
-                placeholder="Escribe aquí..."
-              />
-            </div>
-
-            <div className="formulario">
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                required
-                placeholder="tu@email.com"
-              />
-            </div>
-
-            <div className="formulario">
-              <label htmlFor="telefono">Teléfono</label>
-              <input
-                type="tel"
-                id="telefono"
-                placeholder="3525662288"
-              />
-            </div>
-
-            <div className="formulario">
-              <label htmlFor="horario">
-                ¿En qué horario te gustaría que nos comuniquemos?
-              </label>
-
-              <select id="horario">
-                <option value="mañana">Mañana</option>
-                <option value="tarde">Tarde</option>
-                <option value="noche">Noche</option>
-              </select>
-            </div>
-
-            <button className="boton-enviar" type="submit">
-              Enviar
-            </button>
-
-            <button className="boton-reset" type="reset">
-              Reset
-            </button>
-
           </div>
-        </form>
-      </div>
+
+          {/* COLOR */}
+          <div className="formulario">
+            <label>¿Qué color es?</label>
+            <input
+              type="text"
+              name="color"
+              value={form.color}
+              onChange={handleChange}
+            />
+          </div>
+
+          {/* MODELO */}
+          <div className="formulario">
+            <label>¿Qué modelo es?</label>
+            <input
+              type="number"
+              name="modelo"
+              value={form.modelo}
+              onChange={handleChange}
+            />
+          </div>
+
+          {/* FOTO (no se maneja en state por simplicidad) */}
+          <div className="formulario">
+            <label>Foto del vehículo</label>
+            <input type="file" />
+          </div>
+
+          {/* CHECKBOXES */}
+          <div className="formulario">
+            <label>Servicios</label>
+
+            <div>
+              <input
+                type="checkbox"
+                id="pulido"
+                checked={form.servicios.pulido}
+                onChange={handleCheckbox}
+              />
+              Pulido
+            </div>
+
+            <div>
+              <input
+                type="checkbox"
+                id="limpieza"
+                checked={form.servicios.limpieza}
+                onChange={handleCheckbox}
+              />
+              Limpieza interior
+            </div>
+
+            <div>
+              <input
+                type="checkbox"
+                id="polarizado"
+                checked={form.servicios.polarizado}
+                onChange={handleCheckbox}
+              />
+              Polarizado
+            </div>
+
+            <div>
+              <input
+                type="checkbox"
+                id="opticas"
+                checked={form.servicios.opticas}
+                onChange={handleCheckbox}
+              />
+              Ópticas
+            </div>
+          </div>
+
+          {/* COMENTARIO */}
+          <textarea
+            name="comentario"
+            value={form.comentario}
+            onChange={handleChange}
+            rows="6"
+            placeholder="Contanos tu problema..."
+          />
+
+          {/* DATOS */}
+          <input
+            name="nombre"
+            placeholder="Nombre"
+            value={form.nombre}
+            onChange={handleChange}
+          />
+
+          <input
+            name="apellido"
+            placeholder="Apellido"
+            value={form.apellido}
+            onChange={handleChange}
+          />
+
+          <input
+            name="email"
+            placeholder="Email"
+            value={form.email}
+            onChange={handleChange}
+          />
+
+          <input
+            name="telefono"
+            placeholder="Teléfono"
+            value={form.telefono}
+            onChange={handleChange}
+          />
+
+          {/* SELECT */}
+          <select
+            name="horario"
+            value={form.horario}
+            onChange={handleChange}
+          >
+            <option value="mañana">Mañana</option>
+            <option value="tarde">Tarde</option>
+            <option value="noche">Noche</option>
+          </select>
+
+          {/* BOTONES */}
+          <button type="submit" className="boton-enviar">
+            Enviar
+          </button>
+
+          <button
+            type="button"
+            className="boton-reset"
+            onClick={() =>
+              setForm({
+                vehiculo: "",
+                color: "",
+                modelo: "",
+                comentario: "",
+                nombre: "",
+                apellido: "",
+                email: "",
+                telefono: "",
+                horario: "mañana",
+                servicios: {
+                  pulido: false,
+                  limpieza: false,
+                  polarizado: false,
+                  opticas: false,
+                },
+              })
+            }
+          >
+            Reset
+          </button>
+        </div>
+      </form>
     </div>
-  )
+  );
 }
 
-export default Formulario
+export default Formulario;

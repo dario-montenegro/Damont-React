@@ -1,5 +1,7 @@
 import gallery from '../../data/gallery'
 import GalleryCard from './GalleryCard'
+import "../../styles/Gallery.css";
+
 
 function Gallery() {
   return (

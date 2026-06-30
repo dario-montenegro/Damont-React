@@ -1,3 +1,4 @@
+import "../../styles/ServiceCard.css";
 function ServiceCard({ image, title, description }) {
   return (
     <div className="service-card">

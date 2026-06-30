@@ -1,6 +1,6 @@
 import services from "../../data/services"
 import ServiceCard from "../common/ServiceCard"
-
+import "../../styles/Servicios.css";
 function Servicios() {
   return (
     <section className="services">

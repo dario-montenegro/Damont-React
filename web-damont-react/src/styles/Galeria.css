@@ -1,0 +1,12 @@
+.galeria-page{
+    width: 90%;
+    max-width: 1400px;
+    margin: 40px auto;
+}
+
+.galeria-titulo{
+    text-align: center;
+    color: red;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}

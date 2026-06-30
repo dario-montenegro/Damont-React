@@ -1,3 +1,4 @@
+import "../styles/Mapa.css";
 function Ubicacion() {
   return (
     <div className="mapa">

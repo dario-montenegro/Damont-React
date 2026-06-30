@@ -1,3 +1,4 @@
+import "../../styles/Videos.css";
 function Videos() {
   return (
     <section className="videos">
