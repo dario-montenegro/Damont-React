@@ -19,7 +19,7 @@ function Formulario() {
     },
   });
 
-  // Manejo inputs normales
+  // Manejo de inputs
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -29,7 +29,7 @@ function Formulario() {
     });
   };
 
-  // Checkboxes
+  // Manejo de checkboxes
   const handleCheckbox = (e) => {
     const { id, checked } = e.target;
 
@@ -42,7 +42,7 @@ function Formulario() {
     });
   };
 
-  // Submit
+  // Envío del formulario
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -51,7 +51,7 @@ function Formulario() {
 
     alert("Consulta enviada ✔");
 
-    // RESET
+    // Reset
     setForm({
       vehiculo: "",
       color: "",
@@ -78,48 +78,57 @@ function Formulario() {
       <form onSubmit={handleSubmit}>
         <div className="contenedor-formulario">
 
-          {/* VEHICULO */}
+          {/* Vehículo */}
           <div className="formulario">
-            <label>¿Qué vehículo tenés?</label>
+            <label htmlFor="vehiculo">¿Qué vehículo tenés?</label>
             <input
+              id="vehiculo"
               type="text"
               name="vehiculo"
               value={form.vehiculo}
               onChange={handleChange}
+              placeholder="Ej: Volkswagen Vento"
             />
           </div>
 
-          {/* COLOR */}
+          {/* Color */}
           <div className="formulario">
-            <label>¿Qué color es?</label>
+            <label htmlFor="color">¿Qué color es?</label>
             <input
+              id="color"
               type="text"
               name="color"
               value={form.color}
               onChange={handleChange}
+              placeholder="Ej: Negro"
             />
           </div>
 
-          {/* MODELO */}
+          {/* Modelo */}
           <div className="formulario">
-            <label>¿Qué modelo es?</label>
+            <label htmlFor="modelo">¿Qué modelo es?</label>
             <input
+              id="modelo"
               type="number"
               name="modelo"
               value={form.modelo}
               onChange={handleChange}
+              placeholder="Ej: 2022"
             />
           </div>
 
-          {/* FOTO (no se maneja en state por simplicidad) */}
+          {/* Foto */}
           <div className="formulario">
-            <label>Foto del vehículo</label>
-            <input type="file" />
+            <label htmlFor="foto">Foto del vehículo (opcional)</label>
+            <input
+              id="foto"
+              type="file"
+            />
           </div>
 
-          {/* CHECKBOXES */}
+          {/* Servicios */}
           <div className="formulario">
-            <label>Servicios</label>
+            <label>¿Qué servicio te interesa?</label>
 
             <div>
               <input
@@ -128,7 +137,7 @@ function Formulario() {
                 checked={form.servicios.pulido}
                 onChange={handleCheckbox}
               />
-              Pulido
+              <label htmlFor="pulido"> Pulido</label>
             </div>
 
             <div>
@@ -138,7 +147,7 @@ function Formulario() {
                 checked={form.servicios.limpieza}
                 onChange={handleCheckbox}
               />
-              Limpieza interior
+              <label htmlFor="limpieza"> Limpieza de interior</label>
             </div>
 
             <div>
@@ -148,7 +157,7 @@ function Formulario() {
                 checked={form.servicios.polarizado}
                 onChange={handleCheckbox}
               />
-              Polarizado
+              <label htmlFor="polarizado"> Polarizado</label>
             </div>
 
             <div>
@@ -158,62 +167,99 @@ function Formulario() {
                 checked={form.servicios.opticas}
                 onChange={handleCheckbox}
               />
-              Ópticas
+              <label htmlFor="opticas"> Pulido de ópticas</label>
             </div>
           </div>
 
-          {/* COMENTARIO */}
-          <textarea
-            name="comentario"
-            value={form.comentario}
-            onChange={handleChange}
-            rows="6"
-            placeholder="Contanos tu problema..."
-          />
+          {/* Comentario */}
+          <div className="formulario textarea">
+            <label htmlFor="comentario">
+              Contanos un poco más sobre tu vehículo
+            </label>
 
-          {/* DATOS */}
-          <input
-            name="nombre"
-            placeholder="Nombre"
-            value={form.nombre}
-            onChange={handleChange}
-          />
+            <textarea
+              id="comentario"
+              name="comentario"
+              rows="6"
+              value={form.comentario}
+              onChange={handleChange}
+              placeholder="Ej: Necesito realizar un tratamiento de pintura porque perdió brillo..."
+            />
+          </div>
 
-          <input
-            name="apellido"
-            placeholder="Apellido"
-            value={form.apellido}
-            onChange={handleChange}
-          />
+          {/* Nombre */}
+          <div className="formulario">
+            <label htmlFor="nombre">Nombre</label>
+            <input
+              id="nombre"
+              type="text"
+              name="nombre"
+              placeholder="Nombre"
+              value={form.nombre}
+              onChange={handleChange}
+            />
+          </div>
 
-          <input
-            name="email"
-            placeholder="Email"
-            value={form.email}
-            onChange={handleChange}
-          />
+          {/* Apellido */}
+          <div className="formulario">
+            <label htmlFor="apellido">Apellido</label>
+            <input
+              id="apellido"
+              type="text"
+              name="apellido"
+              placeholder="Apellido"
+              value={form.apellido}
+              onChange={handleChange}
+            />
+          </div>
 
-          <input
-            name="telefono"
-            placeholder="Teléfono"
-            value={form.telefono}
-            onChange={handleChange}
-          />
+          {/* Email */}
+          <div className="formulario">
+            <label htmlFor="email">Correo electrónico</label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              placeholder="ejemplo@email.com"
+              value={form.email}
+              onChange={handleChange}
+            />
+          </div>
 
-          {/* SELECT */}
-          <select
-            name="horario"
-            value={form.horario}
-            onChange={handleChange}
-          >
-            <option value="mañana">Mañana</option>
-            <option value="tarde">Tarde</option>
-            <option value="noche">Noche</option>
-          </select>
+          {/* Teléfono */}
+          <div className="formulario">
+            <label htmlFor="telefono">Teléfono</label>
+            <input
+              id="telefono"
+              type="tel"
+              name="telefono"
+              placeholder="3511234567"
+              value={form.telefono}
+              onChange={handleChange}
+            />
+          </div>
 
-          {/* BOTONES */}
+          {/* Horario */}
+          <div className="formulario">
+            <label htmlFor="horario">
+              ¿En qué horario preferís que nos comuniquemos?
+            </label>
+
+            <select
+              id="horario"
+              name="horario"
+              value={form.horario}
+              onChange={handleChange}
+            >
+              <option value="mañana">Mañana</option>
+              <option value="tarde">Tarde</option>
+              <option value="noche">Noche</option>
+            </select>
+          </div>
+
+          {/* Botones */}
           <button type="submit" className="boton-enviar">
-            Enviar
+            Enviar consulta
           </button>
 
           <button
@@ -239,8 +285,9 @@ function Formulario() {
               })
             }
           >
-            Reset
+            Limpiar formulario
           </button>
+
         </div>
       </form>
     </div>

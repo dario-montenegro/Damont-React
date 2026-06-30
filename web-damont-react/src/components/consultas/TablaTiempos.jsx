@@ -3,7 +3,7 @@ function TablaTiempos() {
     <div className="tabla-tiempos">
       <h3>Tiempo aproximado de cada servicio</h3>
 
-      <table border="1">
+      <table>
         <thead>
           <tr>
             <th>Vehículo</th>

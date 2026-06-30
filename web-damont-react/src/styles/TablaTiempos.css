@@ -1,0 +1,51 @@
+.tabla-tiempos {
+    width: 100%;
+    margin: 50px auto;
+}
+
+.tabla-tiempos h3 {
+    text-align: center;
+    color: #ff2b2b;
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+
+.tabla-tiempos table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #111;
+    color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .6);
+}
+
+.tabla-tiempos thead {
+    background: #c40000;
+}
+
+.tabla-tiempos th {
+    padding: 15px;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.tabla-tiempos td {
+    padding: 15px;
+    text-align: center;
+    border-top: 1px solid #2c2c2c;
+}
+
+.tabla-tiempos tbody tr:nth-child(even) {
+    background: #1b1b1b;
+}
+
+.tabla-tiempos tbody tr:hover {
+    background: #2a2a2a;
+    transition: .3s;
+}
+
+.tabla-tiempos td:first-child {
+    color: #ff4d4d;
+    font-weight: bold;
+}
